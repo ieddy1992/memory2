@@ -1,10 +1,12 @@
 package com.mycompany.memory.gui;
 
 import com.mycompany.memory.controller.AppController;
+import com.mycompany.memory.model.Credenciais;
 import com.mycompany.memory.model.User;
+import java.sql.SQLException;
+
+import javax.swing.*;
 import java.util.List;
-import javax.swing.DefaultListModel;
-import javax.swing.JList;
 
 public class CredenciaisFrame extends javax.swing.JFrame {
 
@@ -13,7 +15,7 @@ public class CredenciaisFrame extends javax.swing.JFrame {
     private final DefaultListModel<String> credenciaisListModel;
     private JList<String> credenciaisList;
 
-    public CredenciaisFrame(User user) {
+    public CredenciaisFrame(User user) throws SQLException {
         this.user = user;
         this.appController = new AppController(); // Inicializa o controlador
         this.credenciaisListModel = new DefaultListModel<>();
@@ -21,6 +23,7 @@ public class CredenciaisFrame extends javax.swing.JFrame {
 
         initComponents();
         carregarCredenciais();
+    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -72,12 +75,14 @@ public class CredenciaisFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void carregarCredenciais() {
-    credenciaisList = appController.getCredenciaisPorUsuarioId(user.getId());
+    private void carregarCredenciais() throws SQLException {
+        List<Credenciais> credenciais = appController.getCredenciaisPorUsuarioId(user.getId());
         credenciaisListModel.removeAllElements(); // Limpa o modelo atual
-        for (String credencial : credenciais) {
-            credenciaisListModel.addElement(credencial); // Adiciona as credenciais ao modelo da lista
+        for (Credenciais credencial : credenciais) {
+            // Adiciona os dados de login e senha ao modelo da lista
+            credenciaisListModel.addElement("Login: " + credencial.getLogin() + ", Senha: " + credencial.getSenha());
         }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> credencialList;
     private javax.swing.JScrollPane jScrollPane1;
