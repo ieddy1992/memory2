@@ -83,7 +83,6 @@ public class WelcomeFrame extends JFrame {
         this.dispose();
     } catch (SQLException ex) {
         Logger.getLogger(WelcomeFrame.class.getName()).log(Level.SEVERE, null, ex);
-        // Lógica de tratamento de exceção, se necessário
     }
 
     }                                                
