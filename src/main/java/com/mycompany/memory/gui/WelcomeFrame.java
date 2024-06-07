@@ -18,7 +18,7 @@ public class WelcomeFrame extends JFrame {
         this.user = user;
         initComponents();
     }
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         visualizarButton = new javax.swing.JButton();
@@ -73,9 +73,9 @@ public class WelcomeFrame extends JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
+    }// </editor-fold>//GEN-END:initComponents
 
-    private void visualizarButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+    private void visualizarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizarButtonActionPerformed
     CredenciaisFrame credenciaisFrame = null; // Declare aqui
     try {
         credenciaisFrame = new CredenciaisFrame(user);
@@ -83,11 +83,12 @@ public class WelcomeFrame extends JFrame {
         this.dispose();
     } catch (SQLException ex) {
         Logger.getLogger(WelcomeFrame.class.getName()).log(Level.SEVERE, null, ex);
+        // Lógica de tratamento de exceção, se necessário
     }
 
-    }                                                
+    }//GEN-LAST:event_visualizarButtonActionPerformed
 
-    private void credencialButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+    private void credencialButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_credencialButtonActionPerformed
         UserDAO userDAO = new UserDAO();
         User user = null;
         try {
@@ -104,9 +105,9 @@ public class WelcomeFrame extends JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Você não tem permissão para cadastrar credenciais.", "Erro", JOptionPane.ERROR_MESSAGE);
         }
-    }                                                
+    }//GEN-LAST:event_credencialButtonActionPerformed
 
-    private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                
+    private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         UserDAO userDAO = new UserDAO();
         User user = null;
         try {
@@ -122,11 +123,11 @@ public class WelcomeFrame extends JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Você não tem permissão para cadastrar usuários.", "Erro", JOptionPane.ERROR_MESSAGE);
         }
-    }                                               
+    }//GEN-LAST:event_cadastrarButtonActionPerformed
 
-    // Variables declaration - do not modify                     
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cadastrarButton;
     private javax.swing.JButton credencialButton;
     private javax.swing.JButton visualizarButton;
-    // End of variables declaration                   
+    // End of variables declaration//GEN-END:variables
 }
